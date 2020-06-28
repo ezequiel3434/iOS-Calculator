@@ -171,29 +171,46 @@ final class HomeViewController: UIViewController {
     sender.shine()
     }
     @IBAction func operatorAdditionAction(_ sender: UIButton) {
+        if operation != .none {
+            result()
+        }
         
-        result()
         operating = true
         operation = .addition
+        sender.selectOperation(true)
         
     sender.shine()
     }
     @IBAction func operatorSubstractionAction(_ sender: UIButton) {
-        result()
+        if operation != .none {
+            result()
+        }
+        
         operating = true
         operation = .substraction
+        sender.selectOperation(true)
+
     sender.shine()
     }
     @IBAction func operatorMultiplicationAction(_ sender: UIButton) {
-        result()
+        if operation != .none {
+            result()
+        }
+        
         operating = true
         operation = .multiplication
+        sender.selectOperation(true)
+
     sender.shine()
     }
     @IBAction func operatorDivisionAction(_ sender: UIButton) {
-        result()
+        if operation != .none {
+            result()
+        }
         operating = true
         operation = .division
+        sender.selectOperation(true)
+
     sender.shine()
     }
     
@@ -209,6 +226,8 @@ final class HomeViewController: UIViewController {
         
         resultLabel.text = resultLabel.text! + kDecimalSeparator
         decimal = true
+        
+        selectVisualOperation()
         
     sender.shine()
     }
@@ -242,6 +261,7 @@ final class HomeViewController: UIViewController {
         
         resultLabel.text = printFormatter.string(from: NSNumber(value: temp))
         
+        selectVisualOperation()
         sender.shine()
         
     }
@@ -253,6 +273,8 @@ final class HomeViewController: UIViewController {
         
         if temp != 0 {
             temp = 0
+            //cambio
+//            total = 0
             resultLabel.text = "0"
         } else {
             total = 0
@@ -294,8 +316,62 @@ final class HomeViewController: UIViewController {
         }
         
         operation = .none
+        selectVisualOperation()
         
         print("TOTAL: \(total)")
     
+    }
+    
+    // Muestra de forma visual la operación seleccionada
+    private func selectVisualOperation(){
+        
+        if !operating {
+            //no estamos operando
+            
+            operatorAddition.selectOperation(false)
+            operatorSubstraction.selectOperation(false)
+            operatorDivision.selectOperation(false)
+            operatorMultiplication.selectOperation(false)
+        } else {
+            switch operation {
+            
+            case .addition:
+                
+                operatorAddition.selectOperation(true)
+                operatorSubstraction.selectOperation(false)
+                operatorDivision.selectOperation(false)
+                operatorMultiplication.selectOperation(false)
+                
+                break
+            case .substraction:
+                
+                operatorAddition.selectOperation(false)
+                operatorSubstraction.selectOperation(true)
+                operatorDivision.selectOperation(false)
+                operatorMultiplication.selectOperation(false)
+                break
+            case .multiplication:
+                
+                operatorAddition.selectOperation(false)
+                operatorSubstraction.selectOperation(false)
+                operatorDivision.selectOperation(false)
+                operatorMultiplication.selectOperation(true)
+                break
+            case .division:
+                
+                operatorAddition.selectOperation(false)
+                operatorSubstraction.selectOperation(false)
+                operatorDivision.selectOperation(true)
+                operatorMultiplication.selectOperation(false)
+                break
+            case .none, .percent:
+                
+                operatorAddition.selectOperation(false)
+                operatorSubstraction.selectOperation(false)
+                operatorDivision.selectOperation(false)
+                operatorMultiplication.selectOperation(false)
+                break
+            }
+        }
     }
 }
