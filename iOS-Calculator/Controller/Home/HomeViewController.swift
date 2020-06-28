@@ -26,6 +26,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var number7: UIButton!
     @IBOutlet weak var number8: UIButton!
     @IBOutlet weak var number9: UIButton!
+    @IBOutlet weak var numberDecimal: UIButton!
     
     // Operators
     @IBOutlet weak var opeartorAC: UIButton!
@@ -54,7 +55,34 @@ final class HomeViewController: UIViewController {
 
         
     }
-
-
+    
+    // MARK: - Buttons actions
+    
+    @IBAction func operatorACAction(_ sender: Any) {
+    }
+    @IBAction func operatorPlusMinusAction(_ sender: Any) {
+       }
+    @IBAction func operatorPercentAction(_ sender: Any) {
+       }
+    @IBAction func operatorResultAction(_ sender: Any) {
+       }
+    @IBAction func operatorAdditionAction(_ sender: Any) {
+       }
+    @IBAction func operatorSubstractionAction(_ sender: Any) {
+       }
+    @IBAction func operatorMultiplicationAction(_ sender: Any) {
+       }
+    @IBAction func operatorDivisionAction(_ sender: Any) {
+       }
+    
+    
+    
+    @IBAction func numberDecimalAction(_ sender: Any) {
+    }
+    
+    @IBAction func numberAction(_ sender: UIButton) {
+        print(sender.tag)
+    }
+    
 
 }
