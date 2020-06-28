@@ -50,6 +50,7 @@ final class HomeViewController: UIViewController {
     
     private let kDecimalSeparator = Locale.current.decimalSeparator!
     private let kMaxLength = 9
+    private let KTotal = "total"
 
     private enum OperationType {
         case none, addition, substraction, multiplication, division, percent
@@ -120,30 +121,36 @@ final class HomeViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UI
-        number0.round()
-        number1.round()
-        number2.round()
-        number3.round()
-        number4.round()
-        number5.round()
-        number6.round()
-        number7.round()
-        number8.round()
-        number9.round()
-        numberDecimal.round()
-        opeartorAC.round()
-        operatorPlusMinus.round()
-        operatorPercent.round()
-        operatorResult.round()
-        operatorAddition.round()
-        operatorSubstraction.round()
-        operatorMultiplication.round()
-        operatorDivision.round()
+       
         
         numberDecimal.setTitle(kDecimalSeparator, for: .normal)
-        
+        total = UserDefaults.standard.double(forKey: KTotal)
         result()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //UI
+               number0.round()
+               number1.round()
+               number2.round()
+               number3.round()
+               number4.round()
+               number5.round()
+               number6.round()
+               number7.round()
+               number8.round()
+               number9.round()
+               numberDecimal.round()
+               opeartorAC.round()
+               operatorPlusMinus.round()
+               operatorPercent.round()
+               operatorResult.round()
+               operatorAddition.round()
+               operatorSubstraction.round()
+               operatorMultiplication.round()
+               operatorDivision.round()
     }
     
     // MARK: - Buttons actions
@@ -317,6 +324,8 @@ final class HomeViewController: UIViewController {
         
         operation = .none
         selectVisualOperation()
+        
+        UserDefaults.standard.set(total, forKey: KTotal)
         
         print("TOTAL: \(total)")
     
