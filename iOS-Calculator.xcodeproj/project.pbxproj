@@ -76,6 +76,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		375A64CB24ABFBC30002F602 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		37DB7F8924A8D1A20014F75F = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +90,7 @@
 				37DB7FAB24A8D1A30014F75F /* iOS-CalculatorTests */,
 				37DB7FB624A8D1A30014F75F /* iOS-CalculatorUITests */,
 				37DB7F9324A8D1A20014F75F /* Products */,
+				375A64CB24ABFBC30002F602 /* Images */,
 			);
 			sourceTree = "<group>";
 		};
